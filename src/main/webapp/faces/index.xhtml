@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:my="http://java.sun.com/jsf/composite/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="resources/css/main.css" />
+	<link type="text/css" rel="stylesheet" href="resources/css/header.css" />
+	
+	<link rel="icon" type="image/png" href="resources/images/globe-icon.png"/>
+	<title>Welcome to FlightGrep</title>
+</h:head>
+
+<h:body id="main-body" styleClass="main-body">	
+
+	<my:header bannerClass="main-banner" toolbarClass="main-toolbar" buttonClass="main-toolbar-button"/>
+
+	<form id="search-form">
+		
+			<p:panelGrid styleClass="search-panelgrid">							
+				<p:row>
+					<p:column style="width:200px">
+						<h:graphicImage value="resources/images/plane-small.png" />
+					</p:column>
+					<p:column>
+						<p:selectOneRadio value="1">
+							<f:selectItem itemLabel="One-Way" itemValue="1" />
+							<f:selectItem itemLabel="Round-Trip" itemValue="2" />
+						</p:selectOneRadio>
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column style="width:200px">
+						<h:outputText styleClass="searchFormLabel" value="Start Airport" />
+					</p:column>
+					<p:column>
+						<p:autoComplete id="auto1" value="#{searchBean.fromAirport}"
+							completeMethod="#{searchBean.complete}" forceSelection="true" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column style="width:200px">
+						<h:outputText styleClass="searchFormLabel" value="Leave Date" />
+					</p:column>
+					<p:column>
+						<p:calendar readOnlyInputText="true" styleClass="calendar"
+							value="#{searchBean.leaveDate}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column style="width:200px">
+						<h:outputText styleClass="searchFormLabel" value="End Airport" />
+					</p:column>
+					<p:column>
+						<p:autoComplete id="auto2" value="#{searchBean.toAirport}"
+							completeMethod="#{searchBean.complete}" forceSelection="true" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column style="width:200px">
+						<h:outputText styleClass="searchFormLabel" value="Return Date" />
+					</p:column>
+					<p:column>
+						<p:calendar readOnlyInputText="true" styleClass="calendar"
+							value="#{searchBean.returnDate}" />
+					</p:column>
+				</p:row>
+
+				<f:facet name="footer">
+					<p:row>
+						<p:column colspan="2">
+							<h:panelGroup style="display:block; text-align:center">
+								<h:commandButton id="searchButton" value="Search Flights"
+									action="#{searchBean.search}" />
+							</h:panelGroup>
+						</p:column>
+					</p:row>
+				</f:facet>
+			</p:panelGrid>
+		
+	</form>
+</h:body>
+</html>
+
+
+
+

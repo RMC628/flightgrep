@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<h:outputStylesheet name="main.css" library="css" />
+	<title>Welcome to FlightCat</title>
+</h:head>
+
+<h:body styleClass="mainBody">
+
+	<h:graphicImage styleClass="mainBanner" library="images"
+		name="MainBanner.png" />
+
+	<p:toolbar styleClass="toolBar"
+		style="width:728px;height:35px;position:relative;margin-right:auto;margin-left:auto;">
+		<p:toolbarGroup align="center" height="25" style="height:25px">
+        <p:commandButton type="button" styleClass="linkBtn" value="Home" title="Home"/>
+        <p:commandButton type="button" styleClass="linkBtn" value="Login" title="Login"/>
+        <p:commandButton type="button" styleClass="linkBtn" value="About Us	" title="About Us"/>
+        <p:commandButton type="button" styleClass="linkBtn" value="Help" title="Help"/>
+      </p:toolbarGroup>
+	</p:toolbar>
+	
+	<div id="globe-img-div">
+		<h:graphicImage library="images" name="globe.png" />
+	</div>
+
+	<p:panelGrid columns="2" styleClass="searchPanelGrid"
+		style="position:relative;margin-top:auto;margin-bottom:auto; vertical-align:middle;">
+		<h:outputText styleClass="SearchFormLabel" value="Select Type" />
+		<p:selectOneRadio styleClass="selectCity" value="">
+			<f:selectItem itemLabel="Roundtrip" itemValue="1" />
+			<f:selectItem itemLabel="One way" itemValue="2" />
+		</p:selectOneRadio>		
+		
+		
+		
+		<h:outputText styleClass="searchFormLabel" value="Flying from" for="city"/>
+
+		<p:autoComplete id="auto1" value="#{autoCompleteBeanDemo.selectedValue}" completeMethod="#{autoCompleteBeanDemo.complete}" />
+
+		<h:outputText styleClass="searchFormLabel" value="Departing" />
+		<p:calendar styleClass="calendar" value="#{calendarBean.now}"
+			mindate="#{calendarBean.minDate}" maxdate="#{calendarBean.maxDate}" />
+
+		<h:outputText styleClass="searchFormLabel" value="Flying to" />
+
+		<p:autoComplete id="auto2" value="#{autoCompleteBeanDemo.selectedValue}" completeMethod="#{autoCompleteBeanDemo.complete}" />
+
+		<h:outputText styleClass="searchFormLabel" value="Returning" />
+
+		<p:calendar styleClass="calendar" value="#{calendarBean.now}"
+			mindate="#{calendarBean.minDate}" maxdate="#{calendarBean.maxDate}" />
+		<f:facet name="footer">
+			<p:commandButton value="Search Flights" />
+		</f:facet>
+	</p:panelGrid>
+	
+</h:body>
+</html>
+
+
+
+

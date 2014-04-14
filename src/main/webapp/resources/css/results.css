@@ -1,0 +1,80 @@
+.results-body {
+	position:relative;
+	text-align:center;	
+	padding:0;
+	margin:0;
+	background-color:lightblue;	  
+}
+
+.results-form {	
+	position:relative;
+	width:600px;	
+	text-align:center;
+	margin:0 auto;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	
+}
+
+.results-panelgrid {
+	position:relative;
+	margin-right:auto;
+	margin-left:auto;
+	text-align:center;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding:5px;	
+	width:400px !important;
+	height:250px !important;
+}
+
+.results-panelgrid .results-footer-panelgroup {
+	position:relative;
+	display:block; 
+	text-align:center;
+	margin-bottom:25px;
+}
+
+.results-fieldset .ui-fieldset {
+	position:relative;
+	margin:0 auto;
+	text-align:center;
+	width:400px;
+	height:250px;	
+	margin-bottom:50px;
+	margin-top:50px;
+} 
+
+
+.results-datalist-all {
+	margin:0 auto;
+	position:relative;
+	width:600px;
+	height:250px;
+	text-align:center;
+}
+
+.results-datalist-legs {
+	margin:0 auto;
+	text-align:center;
+	width:600px;
+	height:250px;
+	margin-top:25px;
+	margin-bottom:25px;
+}
+
+.results-datalist-all .ui-widget-content {
+	margin:0 auto;
+	text-align:center;	
+}
+
+.results-datalist-legs .ui-widget-content {
+	margin:0 auto;
+	text-align:center;		
+}
+
+.ui-datalist .ui-datalist-footer {
+    text-align:center;    
+}
+

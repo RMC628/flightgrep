@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:my="http://java.sun.com/jsf/composite/ui">
+	
+<h:head>	
+	<!--  css for header composite component -->
+	
+	<!--  css for this page -->
+	<link type="text/css" rel="stylesheet" href="resources/css/results.css" />
+	<!--  include icon to look cool -->
+	<link rel="icon" type="image/png" href="resources/images/globe-icon.png"/>
+	<link type="text/css" rel="stylesheet" href="resources/css/header.css"/>
+	<title>Flight Search Results</title>
+</h:head>
+
+<h:body styleClass="results-body">	
+	
+	<my:header bannerClass="main-banner" toolbarClass="main-toolbar" buttonClass="main-toolbar-button"/>
+	
+	<!--  RESULTS GRID -->	
+	<h:form id="results-form">
+		<p:dataList value="#{searchBean.results}" var="flight"
+		itemType="none"  styleClass="results-datalist-all">		
+			<p:dataList 
+				value="#{flight.flightLegs}" styleClass="results-datalist-legs"
+				var="f" itemType="none" type="unordered">
+
+				<p:fieldset  legend="#{f.airlineName} (#{f.carrierFsCode}) - Flight #{f.flightNumber}" toggleable="false"
+					toggleSpeed="500" styleClass="results-fieldset" >
+					<h:panelGrid columns="2" styleClass="results-panelgrid">
+						<p:row>
+							<p:column><h:graphicImage value="resources/images/#{f.airline.logoUrl}" /></p:column>
+						</p:row>
+						<p:row>
+							<p:column><h:outputText value="#{f.flightDurationHours} Hour(s) #{f.flightDurationMinutes} Minute(s)" /></p:column>						
+						</p:row>
+						<p:row>
+							<p:column><h:outputText value="Departure: #{f.departureAirportFsCode}"/></p:column>
+						</p:row>
+						<p:row>
+							<p:column><h:outputText value="Arrival: #{f.arrivalAirportFsCode}"/></p:column>
+						</p:row>
+						<p:row>	
+							<p:column><h:outputText value="#{f.fromCity}, #{f.fromState}"/></p:column>	
+						</p:row>
+						<p:row>	
+							<p:column><h:outputText value="#{f.toCity}, #{f.toState}"/></p:column>	
+						</p:row>						
+						<p:row>
+							<p:column><h:outputText value="Departure Time: #{f.departureTime}"/></p:column>
+						</p:row>						
+						<p:row>
+							<p:column><h:outputText value="Arrival Time: #{f.arrivalTime}" /></p:column>
+						</p:row>							
+						<f:facet name="footer">
+						<p:row>
+						  <p:column colspan="2">
+						  <h:panelGroup styleClass="results-footer-panelgroup">
+							<p:commandButton type="button" value="Add to Cart"/>
+						  </h:panelGroup>
+						  </p:column> 
+						  </p:row>
+						</f:facet>										
+					</h:panelGrid>					
+				</p:fieldset>
+			</p:dataList>				
+	</p:dataList>	
+	</h:form>
+	<!--  END RESULTS GRID -->
+	
+	<h:button value="Start Over" onClick="index"/>
+	
+</h:body>
+</html>
+
+

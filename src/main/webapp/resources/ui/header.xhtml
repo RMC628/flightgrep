@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+	<composite:attribute name="bannerClass"/>
+	<composite:attribute name="toolbarClass"/>
+	<composite:attribute name="buttonClass"/>	
+</composite:interface>
+
+<composite:implementation>
+
+	<h:graphicImage styleClass="#{cc.attrs.bannerClass}"
+		value="resources/images/oceanscape.png" />
+	<p:toolbar styleClass="#{cc.attrs.toolbarClass}"
+		>
+		<p:toolbarGroup align="center" style="padding-right:15px;padding-left:15px;">
+			<p:button styleClass="#{cc.attrs.buttonClass}" href="index" value="Search Flights"/>
+			<p:button styleClass="#{cc.attrs.buttonClass}" value="Source Code" href="https://github.com/RMC628/flightgrep.git" />
+			<p:button  styleClass="#{cc.attrs.buttonClass}" value="Login" />
+		</p:toolbarGroup>
+	</p:toolbar>
+</composite:implementation>
+</html>
